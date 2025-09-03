@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Football Manager</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, midnightblue, lightblue);
+      font-family: Arial, sans-serif;
+    }
+
+    .menu {
+      text-align: center;
+      color: white;
+    }
+
+    .menu h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .menu button {
+      background: white;
+      color: midnightblue;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.3s ease;
+    }
+
+    .menu button:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <h1>Football Manager</h1>
+    <button onclick="startGame()">Start</button>
+  </div>
+
+  <script>
+    function startGame() {
+      // For now, just show an alert.
+      // Later, this can load your game screen.
+      alert("Game starting...");
+    }
+  </script>
+</body>
+</html>
