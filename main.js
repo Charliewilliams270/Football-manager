@@ -21,7 +21,7 @@ const leagues = {
     "Cheltenham Town", "Exeter City", "Fleetwood Town", "Leyton Orient",
     "Lincoln City", "Mansfield Town", "Northampton Town", "Peterborough United",
     "Port Vale", "Reading", "Rotherham United", "Shrewsbury Town",
-    "Stevenage", "Wigan Athletic", "Wycombe Wanderers", "Portsmouth"
+    "Stevenage", "Wigan Athletic", "Wycombe Wanderers"
   ],
   league2: [
     "Accrington Stanley", "AFC Wimbledon", "Barrow", "Bradford City",
@@ -29,35 +29,69 @@ const leagues = {
     "Forest Green Rovers", "Gillingham", "Grimsby Town", "Harrogate Town",
     "Milton Keynes Dons", "Morecambe", "Newport County", "Notts County",
     "Salford City", "Stockport County", "Sutton United", "Swindon Town",
-    "Tranmere Rovers", "Walsall", "Wrexham", "Yeovil Town"
+    "Tranmere Rovers", "Walsall", "Wrexham"
   ]
 };
 
-// Called when choosing a league
+// Example team colours (add more later)
+const teamColors = {
+  "Arsenal": "#EF0107",
+  "Chelsea": "#034694",
+  "Liverpool": "#C8102E",
+  "Manchester City": "#6CABDD",
+  "Manchester United": "#DA291C",
+  "Tottenham Hotspur": "#132257",
+  "Everton": "#003399",
+  "West Ham United": "#7A263A",
+  "Newcastle United": "#241F20",
+  "Leeds United": "#FFCD00",
+  "Wrexham": "#c8102e"
+};
+
+// ----- League selection -----
 function chooseLeague(league) {
   localStorage.setItem("selectedLeague", league);
   window.location.href = "teams.html";
 }
 
-// When teams.html loads
+// ----- Team selection -----
+function chooseTeam(team) {
+  localStorage.setItem("selectedTeam", team);
+  window.location.href = "dashboard.html";
+}
+
+// ----- On page load -----
 window.onload = function () {
   const leagueKey = localStorage.getItem("selectedLeague");
-  if (!leagueKey) return;
+  const teamKey = localStorage.getItem("selectedTeam");
 
-  if (document.getElementById("league-title")) {
-    // Title
+  // On teams.html
+  if (document.getElementById("team-list") && leagueKey) {
     document.getElementById("league-title").innerText = formatLeagueName(leagueKey);
 
-    // Teams
     const list = document.getElementById("team-list");
     leagues[leagueKey].forEach(team => {
       const li = document.createElement("li");
       li.textContent = team;
+      li.style.cursor = "pointer";
+      li.onclick = () => chooseTeam(team);
       list.appendChild(li);
     });
   }
+
+  // On dashboard.html
+  if (document.getElementById("team-name") && teamKey) {
+    document.getElementById("team-name").innerText = teamKey;
+    document.getElementById("welcome").innerText = "Welcome, manager of " + teamKey + "!";
+
+    // Apply team colour
+    const body = document.getElementById("dashboard");
+    body.style.background = teamColors[teamKey] || "#333";
+    body.style.color = "white";
+  }
 };
 
+// Format league names
 function formatLeagueName(key) {
   switch (key) {
     case "premier": return "Premier League";
