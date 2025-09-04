@@ -1,25 +1,35 @@
-
-// Simple team data
+// Full 2024/25 English leagues
 const leagues = {
   premier: [
-    "Arsenal", "Aston Villa", "Chelsea", "Liverpool", "Manchester City",
-    "Manchester United", "Newcastle United", "Tottenham Hotspur",
-    "West Ham United", "Everton"
+    "Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton",
+    "Chelsea", "Crystal Palace", "Everton", "Fulham", "Ipswich Town",
+    "Leicester City", "Liverpool", "Manchester City", "Manchester United",
+    "Newcastle United", "Nottingham Forest", "Southampton",
+    "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers"
   ],
   championship: [
-    "Leeds United", "Southampton", "West Brom", "Norwich City",
-    "Sunderland", "Hull City", "Cardiff City", "Birmingham City",
-    "Blackburn Rovers", "Stoke City"
+    "Blackburn Rovers", "Bristol City", "Cardiff City", "Coventry City",
+    "Derby County", "Hull City", "Leeds United", "Luton Town",
+    "Middlesbrough", "Millwall", "Norwich City", "Oxford United",
+    "Plymouth Argyle", "Portsmouth", "Preston North End", "Queens Park Rangers",
+    "Sheffield United", "Sheffield Wednesday", "Stoke City", "Sunderland",
+    "Swansea City", "Watford", "West Bromwich Albion", "Huddersfield Town"
   ],
   league1: [
-    "Derby County", "Portsmouth", "Barnsley", "Charlton Athletic",
-    "Wigan Athletic", "Bolton Wanderers", "Oxford United", "Peterborough",
-    "Lincoln City", "Blackpool"
+    "Barnsley", "Birmingham City", "Blackpool", "Bolton Wanderers",
+    "Burton Albion", "Cambridge United", "Carlisle United", "Charlton Athletic",
+    "Cheltenham Town", "Exeter City", "Fleetwood Town", "Leyton Orient",
+    "Lincoln City", "Mansfield Town", "Northampton Town", "Peterborough United",
+    "Port Vale", "Reading", "Rotherham United", "Shrewsbury Town",
+    "Stevenage", "Wigan Athletic", "Wycombe Wanderers", "Portsmouth"
   ],
   league2: [
-    "Stockport County", "Wrexham", "Mansfield Town", "Crewe Alexandra",
-    "Bradford City", "Gillingham", "Colchester United", "Tranmere Rovers",
-    "Doncaster Rovers", "Newport County"
+    "Accrington Stanley", "AFC Wimbledon", "Barrow", "Bradford City",
+    "Colchester United", "Crawley Town", "Crewe Alexandra", "Doncaster Rovers",
+    "Forest Green Rovers", "Gillingham", "Grimsby Town", "Harrogate Town",
+    "Milton Keynes Dons", "Morecambe", "Newport County", "Notts County",
+    "Salford City", "Stockport County", "Sutton United", "Swindon Town",
+    "Tranmere Rovers", "Walsall", "Wrexham", "Yeovil Town"
   ]
 };
 
