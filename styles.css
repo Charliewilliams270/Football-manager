@@ -42,3 +42,50 @@ button {
 button:hover {
   background: #ddd;
 }
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.team-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 250px;
+  text-align: center;
+}
+
+.team-btn:hover {
+  background: #ddd;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.team-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 250px;
+  text-align: center;
+}
+
