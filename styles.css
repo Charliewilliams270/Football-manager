@@ -11,8 +11,20 @@ h1 {
   margin: 40px 0;
 }
 
-.menu {
-  margin-top: 100px;
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+li {
+  background: white;
+  color: black;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 button {
