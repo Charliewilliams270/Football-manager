@@ -66,18 +66,19 @@ window.onload = function () {
   const teamKey = localStorage.getItem("selectedTeam");
 
   // On teams.html
-  if (document.getElementById("team-list") && leagueKey) {
-    document.getElementById("league-title").innerText = formatLeagueName(leagueKey);
+if (document.getElementById("team-list") && leagueKey) {
+  document.getElementById("league-title").innerText = formatLeagueName(leagueKey);
 
-    const list = document.getElementById("team-list");
-    leagues[leagueKey].forEach(team => {
-      const li = document.createElement("li");
-      li.textContent = team;
-      li.style.cursor = "pointer";
-      li.onclick = () => chooseTeam(team);
-      list.appendChild(li);
-    });
-  }
+  const container = document.getElementById("team-list");
+  leagues[leagueKey].forEach(team => {
+    const btn = document.createElement("button");
+    btn.textContent = team;
+    btn.className = "team-btn";
+    btn.onclick = () => chooseTeam(team);
+    container.appendChild(btn);
+  });
+}
+
 
   // On dashboard.html
   if (document.getElementById("team-name") && teamKey) {
