@@ -102,3 +102,75 @@ function formatLeagueName(key) {
     default: return "Unknown League";
   }
 }
+
+
+function loadLineup() {
+  const team = localStorage.getItem("selectedTeam");
+  if (!team || !squads[team]) return;
+
+  document.getElementById("lineup-team").innerText = team + " Lineup";
+
+  const squad = squads[team];
+  const startingXI = squad.slice(0, 11); // first 11 players
+  const bench = squad.slice(11);         // rest are subs
+
+  renderPlayers("starting-xi", startingXI, "starting");
+  renderPlayers("bench", bench, "bench");
+}
+
+function renderPlayers(containerId, players, type) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+  players.forEach((player, index) => {
+    const btn = document.createElement("button");
+    btn.textContent = `${player.name} (${player.position}, ${player.rating})`;
+    btn.className = "player-btn";
+    btn.onclick = () => selectPlayer(type, index);
+    container.appendChild(btn);
+  });
+}
+
+let selectedPlayer = null;
+
+function selectPlayer(type, index) {
+  if (!selectedPlayer) {
+    selectedPlayer = { type, index };
+  } else {
+    // Swap between bench and starting
+    if (selectedPlayer.type !== type) {
+      const team = localStorage.getItem("selectedTeam");
+      const squad = squads[team];
+
+      // find players
+      const startingXI = squad.slice(0, 11);
+      const bench = squad.slice(11);
+
+      if (selectedPlayer.type === "starting") {
+        // swap starting -> bench
+        const temp = startingXI[selectedPlayer.index];
+        startingXI[selectedPlayer.index] = bench[index];
+        bench[index] = temp;
+      } else {
+        // swap bench -> starting
+        const temp = bench[selectedPlayer.index];
+        bench[selectedPlayer.index] = startingXI[index];
+        startingXI[index] = temp;
+      }
+
+      // rebuild full squad
+      squads[team] = [...startingXI, ...bench];
+
+      loadLineup();
+    }
+    selectedPlayer = null;
+  }
+}
+
+function goBack() {
+  window.location.href = "dashboard.html";
+}
+
+// Run lineup when lineup.html loads
+if (document.title.includes("Lineup Manager")) {
+  window.onload = loadLineup;
+}
